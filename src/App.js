@@ -11,7 +11,7 @@ import "react-dropdown-now/style.css"
 function App() {
   const [gameState, setGameState] = useState(0)
   const [settings, setSettings] = useState({
-    amount: 10,
+    amount: 6,
     difficulty: "easy",
     type: "",
     categories: "",
@@ -216,4 +216,3 @@ function App() {
 }
 
 export default App
-
