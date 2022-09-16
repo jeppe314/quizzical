@@ -145,7 +145,7 @@ function App() {
 
     const startEl = (
       <div className="start-container">
-        <h1 className="start-title">VEM VET MEST</h1>
+        <h1 className="start-title">QUIZZICAL</h1>
         <div className="settings-el">
           <Dropdown
             className="dropdown"
