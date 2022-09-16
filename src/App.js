@@ -177,7 +177,23 @@ function App() {
       </div>
     )
 
-  const quizElements = questions.map((question) => {
+    const quizEl = (
+      <div className="quiz-container">
+        <h2>QUIZ</h2>
+        {questionElements}
+        {gameState === 2 && resultElement}
+        <div className="after-div">
+          {submitEl}
+          {gameState === 2 && (
+            <button className="submitBtn home" onClick={() => goHome()}>
+              Home
+            </button>
+          )}
+        </div>
+      </div>
+    )
+
+  const questionElements = questions.map((question) => {
     return (
       <Quiz
         key={question.id}
@@ -197,22 +213,8 @@ function App() {
     <div className="container">
       <div className="blob-left"></div>
       <div className="blob-right"></div>
-      {gameState === 0 && {startEl}}
-      {gameState >= 1 && (
-        <div className="quiz-container">
-          <h2>QUIZ</h2>
-          {quizElements}
-          {gameState === 2 && resultElement}
-          <div className="after-div">
-            {submitEl}
-            {gameState === 2 && (
-              <button className="submitBtn home" onClick={() => goHome()}>
-                Home
-              </button>
-            )}
-          </div>
-        </div>
-      )}
+      {gameState === 0 && startEl}
+      {gameState >= 1 && quizEl}
     </div>
   )
 }
