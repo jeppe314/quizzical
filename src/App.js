@@ -143,7 +143,7 @@ function App() {
       </button>
     )
 
-  const quizElements = questions.map((question) => {
+  const questionElements = questions.map((question) => {
     return (
       <Quiz
         key={question.id}
@@ -159,58 +159,62 @@ function App() {
     )
   })
 
+  const quizEl = (
+    <div className="quiz-container">
+      <h2>QUIZ</h2>
+      {questionElements}
+      {gameState === 2 && resultElement}
+      <div className="after-div">
+        {submitEl}
+        {gameState === 2 && (
+          <button className="submitBtn home" onClick={() => goHome()}>
+            Home
+          </button>
+        )}
+      </div>
+    </div>
+  )
+
+  const startEl = (
+    <div className="start-container">
+      <h1 className="start-title">VEM VET MEST</h1>
+      <div className="settings-el">
+        <Dropdown
+          className="dropdown"
+          placeholder="Select an option"
+          options={typeOptions}
+          value=""
+          onChange={(value) => updateType(value)}
+        />
+
+        <Dropdown
+          className="dropdown"
+          placeholder="Difficulty"
+          options={difficultyOptions}
+          value="easy"
+          onChange={(value) => updateDifficulty(value)}
+        />
+        <Dropdown
+          className="dropdown"
+          placeholder="Number of questions"
+          options={amountOptions}
+          value="6"
+          onChange={(value) => updateAmount(value)}
+        />
+
+        <button className="startBtn" onClick={() => startGame()}>
+          Start game
+        </button>
+      </div>
+    </div>
+  )
+
   return (
     <div className="container">
       <div className="blob-left"></div>
       <div className="blob-right"></div>
-      {gameState === 0 && (
-        <div className="start-container">
-          <h1 className="start-title">VEM VET MEST</h1>
-          <div className="settings-el">
-            <Dropdown
-              className="dropdown"
-              placeholder="Select an option"
-              options={typeOptions}
-              value=""
-              onChange={(value) => updateType(value)}
-            />
-
-            <Dropdown
-              className="dropdown"
-              placeholder="Difficulty"
-              options={difficultyOptions}
-              value="easy"
-              onChange={(value) => updateDifficulty(value)}
-            />
-            <Dropdown
-              className="dropdown"
-              placeholder="Number of questions"
-              options={amountOptions}
-              value="6"
-              onChange={(value) => updateAmount(value)}
-            />
-
-            <button className="startBtn" onClick={() => startGame()}>
-              Start game
-            </button>
-          </div>
-        </div>
-      )}
-      {gameState >= 1 && (
-        <div className="quiz-container">
-          <h2>QUIZ</h2>
-          {quizElements}
-          {gameState === 2 && resultElement}
-          <div className="after-div">
-            {submitEl}
-            {gameState === 2 && (
-              <button className="submitBtn home" onClick={() => goHome()}>
-                Home
-              </button>
-            )}
-          </div>
-        </div>
-      )}
+      {gameState === 0 && { startEl }}
+      {gameState >= 1 && { quizEl }}
     </div>
   )
 }
