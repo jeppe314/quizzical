@@ -143,6 +143,40 @@ function App() {
       </button>
     )
 
+    const startEl = (
+      <div className="start-container">
+        <h1 className="start-title">VEM VET MEST</h1>
+        <div className="settings-el">
+          <Dropdown
+            className="dropdown"
+            placeholder="Select an option"
+            options={typeOptions}
+            value=""
+            onChange={(value) => updateType(value)}
+          />
+
+          <Dropdown
+            className="dropdown"
+            placeholder="Difficulty"
+            options={difficultyOptions}
+            value="easy"
+            onChange={(value) => updateDifficulty(value)}
+          />
+          <Dropdown
+            className="dropdown"
+            placeholder="Number of questions"
+            options={amountOptions}
+            value="6"
+            onChange={(value) => updateAmount(value)}
+          />
+
+          <button className="startBtn" onClick={() => startGame()}>
+            Start game
+          </button>
+        </div>
+      </div>
+    )
+
   const quizElements = questions.map((question) => {
     return (
       <Quiz
@@ -163,39 +197,7 @@ function App() {
     <div className="container">
       <div className="blob-left"></div>
       <div className="blob-right"></div>
-      {gameState === 0 && (
-        <div className="start-container">
-          <h1 className="start-title">VEM VET MEST</h1>
-          <div className="settings-el">
-            <Dropdown
-              className="dropdown"
-              placeholder="Select an option"
-              options={typeOptions}
-              value=""
-              onChange={(value) => updateType(value)}
-            />
-
-            <Dropdown
-              className="dropdown"
-              placeholder="Difficulty"
-              options={difficultyOptions}
-              value="easy"
-              onChange={(value) => updateDifficulty(value)}
-            />
-            <Dropdown
-              className="dropdown"
-              placeholder="Number of questions"
-              options={amountOptions}
-              value="6"
-              onChange={(value) => updateAmount(value)}
-            />
-
-            <button className="startBtn" onClick={() => startGame()}>
-              Start game
-            </button>
-          </div>
-        </div>
-      )}
+      {gameState === 0 && {startEl}}
       {gameState >= 1 && (
         <div className="quiz-container">
           <h2>QUIZ</h2>
