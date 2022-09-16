@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "/quizzical/static/js/runtime~main.10828be3.js"
   },
   {
-    "revision": "f87f7a60280eedfdf4c82a3379c8d939",
+    "revision": "f6caab3322716f1afb205c2d954169c8",
     "url": "/quizzical/index.html"
   }
 ];
