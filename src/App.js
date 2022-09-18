@@ -176,6 +176,21 @@ function App() {
         </div>
       </div>
     )
+    const questionElements = questions.map((question) => {
+      return (
+        <Quiz
+          key={question.id}
+          id={question.id}
+          gameState={gameState}
+          num={(questionNum += 1)}
+          question={question.question}
+          correctAnswer={question.correctAnswer}
+          shuffledAnswers={question.shuffledAnswers}
+          selectedAnswer={question.selectedAnswer}
+          holdAnswer={holdAnswer}
+        />
+      )
+    })
 
     const quizEl = (
       <div className="quiz-container">
@@ -193,21 +208,6 @@ function App() {
       </div>
     )
 
-  const questionElements = questions.map((question) => {
-    return (
-      <Quiz
-        key={question.id}
-        id={question.id}
-        gameState={gameState}
-        num={(questionNum += 1)}
-        question={question.question}
-        correctAnswer={question.correctAnswer}
-        shuffledAnswers={question.shuffledAnswers}
-        selectedAnswer={question.selectedAnswer}
-        holdAnswer={holdAnswer}
-      />
-    )
-  })
 
   return (
     <div className="container">
