@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "a9d7c5411db46ff794e0",
+    "revision": "e117ceb783b9e8371518",
     "url": "/quizzical/static/css/main.ded94395.chunk.css"
   },
   {
-    "revision": "a9d7c5411db46ff794e0",
-    "url": "/quizzical/static/js/main.a9d7c541.chunk.js"
+    "revision": "e117ceb783b9e8371518",
+    "url": "/quizzical/static/js/main.e117ceb7.chunk.js"
   },
   {
     "revision": "aab9aa9e28e0e8b26df1",
@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "/quizzical/static/js/runtime~main.10828be3.js"
   },
   {
-    "revision": "79f6f85f7ca36e17f2ea664495780fe4",
+    "revision": "866f75ddbf96e544a365d82d4b3fd84a",
     "url": "/quizzical/index.html"
   }
 ];
