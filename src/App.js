@@ -12,7 +12,7 @@ function App() {
   const [gameState, setGameState] = useState(0)
   const [settings, setSettings] = useState({
     amount: 6,
-    difficulty: "hard",
+    difficulty: "easy",
     type: "",
     categories: "",
   })
